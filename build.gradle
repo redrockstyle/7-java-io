@@ -18,7 +18,7 @@ subprojects {
         it.options.encoding = "UTF-8"
     }
 
-    group 'java-io'
+    group 'java-base'
     version '1.0-SNAPSHOT'
 
     sourceCompatibility = 1.8
