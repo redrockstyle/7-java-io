@@ -1,5 +1,6 @@
 package com.example.task03;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -15,7 +16,16 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+        if(inputStream == null){
+            throw new IllegalArgumentException("stream is null");
+        }
+        if(charset == null){
+            throw new IllegalArgumentException("charset is null");
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        while(inputStream.available()>0) {
+            byteArrayOutputStream.write(inputStream.read());
+        }
+        return new String(byteArrayOutputStream.toByteArray(),charset);
     }
 }
